@@ -8,6 +8,10 @@ body, html {
   width: 400px;
 }
 
+.content h1 {
+  text-align: center;
+}
+
 table, td, th {
   border: 1px solid #aaa;
 }
@@ -28,8 +32,12 @@ td {
 
 .form {
   margin-top: 20px;
+  text-align: center;
 }
 
 #content {
   width: 70%;
+  margin: 8px 0;
+  
 }
+

@@ -38,5 +38,4 @@ def index():
 
 
 if __name__ == "__main__":
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
     app.run(debug=True) 
