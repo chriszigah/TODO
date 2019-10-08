@@ -14,10 +14,6 @@ class Todo(db.Model):
     # completed = db.Column(db.Interger, default=0)
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
 
-    def __init__(self, **kwargs):
-        super(self).__init__(**kwargs)
-
-
     def __repr__(self):
         return '<Task %r>' % self.id
 
@@ -35,6 +31,7 @@ def index():
             return redirect('/')
         except:
             return 'There was an issue adding your task'
+
     else:
         tasks = Todo.query.order_by(Todo.date_created).all()
         return render_template("index.html", tasks=tasks)
