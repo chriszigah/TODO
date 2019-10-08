@@ -1,13 +1,36 @@
 {% extends 'base.html' %}
 
 {% block title %}
-  <title>Home</title>
+  <title>Task Master</title>
 {% endblock %}
 
 {% block head %}
-  <h1>Template</h1>
+
 {% endblock %}
 
 {% block body %}
+  <div class="content">
+    <h1>Task Master</h1>
+      <table class="table">
+        <tr>
+          <th>Task</th>
+          <th>Added</th>
+          <th>Actions</th>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td>
+            <a href="#">Update</a>
+            <br/>
+            <a href="#">Delete</a>
+          </td>
+        </tr>
+      </table>
 
+      <form action='/' method="POST">
+        <input type="text" name="content" id="content">
+        <input type="submit" value="Add Task">
+      </form>
+  </div>
 {% endblock %}
