@@ -25,7 +25,7 @@ def index():
     if request.method == 'POST':
         task_content = request.form['content']
         if task_content == '':
-            error = 'Please,  Enter a task.'
+            error = 'Please Enter a task.'
             return render_template("index.html", error=error)
 
         new_task = Todo(content=task_content)
