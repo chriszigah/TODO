@@ -1,16 +1,13 @@
 {% extends 'base.html' %}
 
-{% block title %}
-  <title>Task Master</title>
-{% endblock %}
-
 {% block head %}
-
+  <title>Add Task</title>
 {% endblock %}
 
 {% block body %}
   <div class="content">
     <h1>Task Master</h1>
+      {% if error %} <h4 style="color: red"> {{ error }} </h4>{% endif %}
       {% if tasks|length < 1 %}
         <h4>There are no tasks. Create one below.</h4>
       {% else %}
@@ -36,7 +33,7 @@
 
       <form action='/' method="POST">
         <input type="text" name="content" id="content">
-        <input type="submit" value="Add Task">
+        <input type="submit"  onsubmit="validateForm()" value="Add Task">
       </form>
   </div>
 {% endblock %}

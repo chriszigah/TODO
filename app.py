@@ -9,14 +9,14 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
-class Todo(db.Model):          
+class Todo(db.Model):            
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(200), nullable=False)
     # completed = db.Column(db.Interger, default=0)
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):   
-        return '<Task %r>' % self.id
+        return '<Task %r>' % self.id   
 
   
 
@@ -24,6 +24,10 @@ class Todo(db.Model):
 def index():
     if request.method == 'POST':
         task_content = request.form['content']
+        if task_content == '':
+            error = 'Please,  Enter a task.'
+            return render_template("index.html", error=error)
+
         new_task = Todo(content=task_content)
 
         try:
@@ -67,4 +71,4 @@ def update(id):
 
 
 if __name__ == "__main__":
-    app.run(debug=True) 
+    app.run(Debug=True)   
